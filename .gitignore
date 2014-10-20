@@ -1,0 +1,10 @@
+# Compiled site
+output/
+
+# Working data
+crash.log
+tmp/
+
+# Bundler metadata
+.bundle/
+

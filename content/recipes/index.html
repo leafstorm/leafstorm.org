@@ -1,0 +1,24 @@
+---
+title: Recipes
+navbar_icon: cutlery
+---
+<h1>Recipes</h1>
+
+<div class="thumbnail-container">
+    <% @item.child_pages.each do |recipe| %>
+        <div>
+            <div class="thumbnail">
+                <a href="<%= recipe.path %>">
+                    <img alt="<%= recipe[:title] %>" src="<%= recipe.path + 'picture.jpg' %>">
+                </a>
+
+                <div class="caption">
+                    <a href="<%= recipe.path %>">
+                        <%= recipe[:title] %>
+                    </a>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
+

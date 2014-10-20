@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title><%= @item[:title] %> &ndash; leafstorm.us</title>
+    <link rel="stylesheet" href="/style/site.css">
+
+    <meta name="generator" content="nanoc <%= Nanoc::VERSION %>">
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <div class="avatar-container">
+          <img class="avatar" src="/images/avatar-190.png" />
+        </div>
+
+        <div class="title-container">
+          <h1>
+            leafstorm.us
+          </h1>
+
+          <p class="description">
+            The Internet home of Matthew Frazier.
+          </p>
+        </div>
+      </header>
+
+      <div class="main-container">
+        <a href="#main" class="sr-only sr-only-focusable">
+          Skip navigation
+        </a>
+
+        <nav class="categories">
+          <%= main_navbar %>
+        </nav>
+
+        <main id="main">
+          <%= yield %>
+        </main>
+      </div>
+
+      <footer>
+        &copy; 2014, Matthew Frazier.<br>
+        The source code for this site is available on GitHub, at
+        <a href="https://github.com/leafstorm/leafstorm.us">leafstorm/leafstorm.us</a>.<br>
+        Created using <a href="http://nanoc.ws/">nanoc</a>,
+        <a href="http://getbootstrap.com">Bootstrap</a>,
+        <a href="https://fortawesome.github.io/Font-Awesome/">Font Awesome</a>,
+        and other great technologies.
+      </footer>
+    </div>
+  </body>
+</html>
+

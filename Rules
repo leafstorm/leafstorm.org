@@ -1,0 +1,90 @@
+#!/usr/bin/env ruby
+
+# A few helpful tips about the Rules file:
+#
+# * The string given to #compile and #route are matching patterns for
+#   identifiers--not for paths. Therefore, you can’t match on extension.
+#
+# * The order of rules is important: for each item, only the first matching
+#   rule is applied.
+#
+# * Item identifiers start and end with a slash (e.g. “/about/” for the file
+#   “content/about.html”). To select all children, grandchildren, … of an
+#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
+#   because “*” matches zero or more characters.
+
+preprocess do
+  site.memory = {}
+
+  convert_timestamps
+  update_navbar_metadata
+end
+
+
+# Files that live in "style."
+# CSS/LESS files with a write flag:     Filter and write.
+# CSS/LESS files without a write flag:  Don't route.
+# Other sorts of files:                 Write with no processing.
+
+route '/style/*' do
+  ext = item[:extension]
+  if ext == 'css' or ext == 'less'
+    if item[:write]
+      item.identifier.chop + '.css'
+    else
+      nil
+    end
+  else
+    item.identifier.chop + '.' + item[:extension]
+  end
+end
+
+compile '/style/*' do
+  if item[:write]
+    filter :less if item[:extension] == 'less'
+    filter :relativize_paths, :type => :css
+  end
+end
+
+
+# Content items.
+# Text items:               Filter and layout.
+# Binary items:             Write with no processing.
+# Items with a link flag:   Don't route.
+
+route '*' do
+  if item[:link]
+    nil
+  elsif item.binary?
+    # Write item with identifier /foo/ to /foo.ext
+    item.identifier.chop + '.' + item[:extension]
+  else
+    # Write item with identifier /foo/ to /foo/index.html
+    item.identifier + 'index.html'
+  end
+end
+
+compile '*' do
+  if item[:link]
+    nil
+  elsif item.binary?
+    # Don’t filter binary items
+  else
+    filter :erb
+
+    # Markup?
+    case item[:extension]
+      when 'md'
+        filter :kramdown
+    end
+
+    layout 'default'
+    filter :relativize_paths, :type => :html
+  end
+end
+
+
+# Layouts. All of them use erb.
+
+layout '*', :erb
+
