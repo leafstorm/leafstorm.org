@@ -35,12 +35,17 @@ def main_navbar
 
     root.child_pages.each do |page|
       if here.start_with?(page.identifier)
-        write_navbar_li(list, page, true) do
-          list.ul list_attributes do
-            page.child_pages.each do |child|
-              write_navbar_li(list, child, here.start_with?(child.identifier))
+        children = page.child_pages
+        if children.length > 0
+          write_navbar_li(list, page, true) do
+            list.ul list_attributes do
+              children.each do |child|
+                write_navbar_li(list, child, here.start_with?(child.identifier))
+              end
             end
           end
+        else
+          write_navbar_li(list, page, true)
         end
       else
         write_navbar_li(list, page, false)
