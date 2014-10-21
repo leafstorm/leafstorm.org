@@ -22,3 +22,15 @@ possible route.
 * [Slides](https://speakerdeck.com/leafstorm/traversing-the-montreal-metro-with-python)
 * [Source Code](https://github.com/leafstorm/montreal-metro)
 
+
+## Iterators and Generators Tutorial
+
+PyCarolinas --- October 2012 --- Chapel Hill, NC
+
+This talk is a basic introduction to iterators and generators in Python.
+It explains where iterators and generators appear, why they're useful,
+and how you can write your own.
+
+* [My Notes](https://github.com/leafstorm/pycarolinas-2012-iterators/blob/master/PyCarolinas%20Iterators.rst)
+* [Source Code](https://github.com/leafstorm/pycarolinas-2012-iterators)
+
