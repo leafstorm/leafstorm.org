@@ -1,4 +1,4 @@
-# leafstorm.us
+# leafstorm.org
 
 This is the source code for my personal Web site.
 While the trend lately has been to use blogs as personal sites,
@@ -6,7 +6,7 @@ I'm trying more of the traditional "home page" approach for this,
 where the content is less time-dependent and organized thematically.
 ('Cause when my home page was a blog, I never blogged anyway.)
 
-You can see it in action at http://leafstorm.us/.
+You can see it in action at http://www.leafstorm.org/.
 
 
 ## Building

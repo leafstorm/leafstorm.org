@@ -1,9 +1,9 @@
 # Site metadata used by the atom_feed helper.
-title: leafstorm.us
+title: leafstorm.org
 author_name: Matthew Frazier
-author_uri: http://leafstorm.us/
+author_uri: http://www.leafstorm.org/
 
-base_url: http://leafstorm.us/
+base_url: http://www.leafstorm.org/
 
 # The path to the directory where all generated files will be written to. This
 # can be an absolute path starting with a slash, but it can also be path
