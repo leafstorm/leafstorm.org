@@ -2,7 +2,7 @@
 
 header {
     .make-row();
-    padding-top: 20px;
+    padding-top: 10px;
     padding-bottom: 10px;
 
     border-bottom: 1px solid @gray-lighter;
@@ -34,28 +34,32 @@ header {
 
         @media(min-width: @screen-md-min) {
             margin-top: 30px;
+            margin-bottom: 10px;
             .pull-right;
         }
     }
 
     h1 {
-        @media(max-width: @screen-md-min) {
+        @media(max-width: @screen-sm-max) {
             margin-top: 10px;
-            font-size: 40px;
+            font-size: 30px;
         }
 
         margin-top: 30px;
         margin-bottom: 0;
-        font-size: 60px;
+        font-size: 50px;
         font-weight: normal;
     }
 
-    .description {
+    h2.nickname {
         @media(max-width: @screen-sm-max) {
-            font-size: 16px;
+            font-size: 20px;
+            margin-top: 5px;
         }
 
-        font-size: 20px;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 30px;
         color: @gray-light;
     }
 }
@@ -142,6 +146,10 @@ header {
             // To counterbalance the likely h1 at the top.
             padding-bottom: @line-height-computed;
         }
+
+        > p:first-child {
+            margin-top: @line-height-computed;
+        }
     }
 }
 
@@ -188,5 +196,7 @@ p.meta {
     li {
         margin-bottom: 6px;
     }
+
+    margin-bottom: @line-height-computed - 6px;
 }
 
