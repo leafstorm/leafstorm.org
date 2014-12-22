@@ -1,0 +1,3 @@
+--ignore-dir=.bundle
+--ignore-dir=output
+--ignore-file=is:crash.log
