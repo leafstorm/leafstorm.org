@@ -9,6 +9,7 @@ gem 'nokogiri'      # for parsing HTML
 gem 'adsf'          # for viewing the site in a server
 gem 'guard'         # for automatic recompilation
 gem 'guard-nanoc'   # for automatic recompilation
+gem 'systemu'       # for deployment
 
 gem 'builder'       # for XML-building the Atom feed
 gem 'therubyracer'  # cause apparently we need server-side JS for this

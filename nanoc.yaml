@@ -69,6 +69,13 @@ data_sources:
     # it will become “/about.html/” instead.
     allow_periods_in_identifiers: false
 
+# Configuration for the “deploy” command.
+deploy:
+  default:
+    kind: rsync
+    dst: "leafstorm.org:"
+    options: ['-rvz', '--delete', '--filter=protect /scratch']
+
 # Configuration for the “watch” command, which watches a site for changes and
 # recompiles if necessary.
 watcher:
