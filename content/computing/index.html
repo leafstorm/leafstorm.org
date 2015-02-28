@@ -1,0 +1,14 @@
+---
+title: Computing
+navbar_icon: laptop
+---
+<h1>Computing Articles</h1>
+
+<% @item.child_pages.each do |article| %>
+    <h3>
+        <a href="<%= article.path %>"><%= article[:title] %></a>
+    </h3>
+
+    <p><%= article[:summary] %></p>
+<% end %>
+
